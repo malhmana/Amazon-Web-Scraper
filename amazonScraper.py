@@ -9,6 +9,7 @@ import pandas as pd
 import time
 #--------------
 
+chromedriver_path= r'D:\Chrome Driver\chromedriver.exe'
 
 searchQuery = 'Gaming Laptop' # Search Query
 
@@ -16,7 +17,7 @@ parentURL= 'https://www.amazon.in/' # getting a parent URL
 
 url= 'https://www.amazon.in/s?k=' + searchQuery # creating a URL to make a search query
 
-driver= webdriver.Chrome(r'D:\Chrome Driver\chromedriver.exe') #instantiating the browser using selenium
+driver= webdriver.Chrome(chromedriver_path) #instantiating the browser using selenium
 
 driver.get(url) 
 
@@ -82,7 +83,7 @@ df['Price'] = df['Price'].apply(lambda x : x.replace(',','')) # removing commas 
 
 df['Price'] = df['Price'].astype(float) #changing price values to floats
 
-df.to_csv(f'{searchQuery}_amazon_search_non_sponsored.csv')
+df.to_csv(f'{searchQuery}_amazon_search_non_sponsored.csv') # Saving the csv file.
 
 
                   
